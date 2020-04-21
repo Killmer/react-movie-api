@@ -6,6 +6,7 @@ import { IMAGE_BASE_URL, POSTER_SIZE } from '../../config';
 import MovieThumb from './MovieThumb';
 
 import { StyledMovieInfo } from '../styles/StyledMovieInfo';
+import PropTypes from 'prop-types';
 
 const  MovieInfo = ( {movie}) => (
     <StyledMovieInfo backdrop={movie.backdrop_path}>
@@ -34,7 +35,7 @@ const  MovieInfo = ( {movie}) => (
                     <div className="director">
                     <h3>DIRECTOR{movie.directors.length ? "S" : ''}</h3>
                     {movie.directors.map(element => (
-                        <p key={element.ceredit_id}>{element.name}</p>
+                        <p key={element.credit_id}>{element.name}</p>
                     ))}
                     </div>
                 </div>
@@ -42,4 +43,9 @@ const  MovieInfo = ( {movie}) => (
         </div>
     </StyledMovieInfo>
 )
+
+MovieInfo.propTypes = {
+    movie: PropTypes.object,
+}
+
 export default MovieInfo;
